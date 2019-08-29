@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+    constructor(){
+        super();
+        this.state = {
+          playerArr:['Herc','Daniel','Megan','Vanessa','Kat','Jordan','Ben','Corey','Darnel','Greg','Mike','Ange'],
+          winnerArr:['Ben','Jordan'],
+
+        }
+    }
+
+    getPlayer =()=>{
+      let arr = this.state.playerArr;
+      let player = arr.pop();
+      this.setState({playerArr:arr});
+      console.log(arr);
+      return player;
+    }
+
+componentDidMount(){
+let popPlayer =  this.getPlayer()
+  console.log(popPlayer);
+
 }
+
+    render(){
+      // put js herege
+
+
+        return(
+            <div>
+              {this.state.playerArr}
+            </div>
+
+        )
+    }
+}
+
+
 
 export default App;
